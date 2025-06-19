@@ -10,14 +10,21 @@ This project investigates the when, what, and where of vehicle thefts in New Zea
 ## 🎯 Objectives and Analysis
 The queries below were developed to answer specific questions about vehicle thefts in New Zealand: 
 1. **When are vehicles most commonly stolen?**
-SELECT p.product_name,
-	SUM(o.quantity_ordered) as quantity_sold, 
-	AVG(p.price), 
-	SUM(p.price * o.quantity_ordered) as revenue
-FROM products p
-LEFT JOIN orders o ON p.product_id = o.product_id
-GROUP BY 1
-ORDER BY revenue DESC;
+
+'''sql 
+SELECT 
+  CASE DAYOFWEEK(date_stolen)
+    WHEN 1 THEN 'Sunday'
+    WHEN 2 THEN 'Monday'
+    WHEN 3 THEN 'Tuesday'
+    WHEN 4 THEN 'Wednesday'
+    WHEN 5 THEN 'Thursday'
+    WHEN 6 THEN 'Friday'
+    ELSE 'Saturday'
+  END AS day_of_week,
+  COUNT(vehicle_id) AS num_vehicles
+FROM stolen_vehicles
+GROUP BY day_of_week;
 
 ** 📄 Data Info
 * **Source**: Maven Analytics
