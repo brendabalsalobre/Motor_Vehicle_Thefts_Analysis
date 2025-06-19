@@ -8,8 +8,8 @@ This project investigates the when, what, and where of vehicle thefts in New Zea
 * **Excel**: Data visualizations (bar chart, heatmap, map, and scatter plot)
 
 ## 🎯 Objectives and Analysis
-# The queries below were developed to answer specific questions from the vehicle thefts analysis: 
-# **When are vehicles most commonly stolen?
+The queries below were developed to answer specific questions from the vehicle thefts analysis: 
+1. **When are vehicles most commonly stolen?**
 
 ** 📄 Data Info
 * **Source**: Maven Analytics
