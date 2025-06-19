@@ -8,8 +8,16 @@ This project investigates the when, what, and where of vehicle thefts in New Zea
 * **Excel**: Data visualizations (bar chart, heatmap, map, and scatter plot)
 
 ## 🎯 Objectives and Analysis
-The queries below were developed to answer specific questions from the vehicle thefts analysis: 
+The queries below were developed to answer specific questions about vehicle thefts in New Zealand: 
 1. **When are vehicles most commonly stolen?**
+SELECT p.product_name,
+	SUM(o.quantity_ordered) as quantity_sold, 
+	AVG(p.price), 
+	SUM(p.price * o.quantity_ordered) as revenue
+FROM products p
+LEFT JOIN orders o ON p.product_id = o.product_id
+GROUP BY 1
+ORDER BY revenue DESC;
 
 ** 📄 Data Info
 * **Source**: Maven Analytics
